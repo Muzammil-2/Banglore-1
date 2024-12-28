@@ -5,7 +5,7 @@ metadata:
 spec:
   replicas:
   label:
-    app: banglore
+    app: banglore_dev
   template:
     spec:
       name:
