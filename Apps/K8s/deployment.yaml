@@ -1,0 +1,38 @@
+apiVersion:
+Kind:
+metadata:
+  name:
+spec:
+  replicas:
+  label:
+    app: banglore
+  template:
+    spec:
+      name:
+      lable:
+      image: "docker_image"
+      port: 8080
+      env:
+        secretKeyreference:
+          name:
+          key:
+      - Hostname: devdb
+      - host: mongo
+      - Initial_Root_Password: devdb@123
+       
+Volumes:
+-  name:
+VolumeMount:
+  Path: /data/db
+    
+---
+apiVersion: v1
+Kind: Service
+Metadeta:
+  name: mongosvc
+spec:
+  lable:
+    app: mongo
+  type: NodePort
+  port: 80
+  targetPort: 8080

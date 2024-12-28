@@ -1,0 +1,24 @@
+Pipeline {
+    angent any
+    environment
+    tools {
+        maven
+    }
+  stages {
+    stage {
+        steps{
+            "git clone"
+        }
+   
+    }
+    stage (build_code)
+    stage ("code_analysis")
+    stage (build_image)
+    stage ("push_docker_image")
+    stage ("deploy_k8s")
+    steps{
+        sh "kubectl apply -f /k8s/deployment.yaml"
+    }
+  }
+
+}
